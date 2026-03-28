@@ -1,0 +1,312 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /*padding и border не увеличивают общую ширину элемента */
+}
+
+body {
+    background: linear-gradient(145deg, #f0f7ff 0%, #e9eef5 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Segoe UI', 'Roboto', sans-serif;
+    /* Семейство шрифтов с запасным вариантом */
+    padding: 20px;
+}
+
+/* Основной контейнер карточки теста */
+.test-container {
+    max-width: 750px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(2px);
+    border-radius: 48px;
+    box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.2), 0 2px 6px rgba(0, 0, 0, 0.05);
+    /* Тень: первая - большая тень снизу, вторая - легкая по краям */
+    overflow: hidden;
+    /* Скрываем содержимое, выходящее за скругленные углы */
+    transition: all 0.2s ease;
+}
+
+/* Шапка теста с градиентным фоном */
+.test-header {
+    background: linear-gradient(135deg, #0f2b4d 0%, #1e4a76 100%);
+    padding: 28px 32px;
+    color: white;
+}
+
+/* Заголовок H1 в шапке */
+.test-header h1 {
+    font-size: 1.9rem;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+    /* Небольшое уменьшение межбуквенного расстояния */
+    margin-bottom: 8px;
+}
+
+/* Параграф в шапке */
+.test-header p {
+    font-size: 1rem;
+    opacity: 0.85;
+    /* Прозрачность 85% для приглушенного эффекта */
+    font-weight: 500;
+}
+
+/* Бейдж с прогрессом */
+.progress-badge {
+    display: inline-block;
+    background: #f4a261;
+    padding: 6px 14px;
+    border-radius: 60px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    margin-top: 14px;
+    color: #1e2f41;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05), 0 2px 5px rgba(0, 0, 0, 0.1);
+    /* Внутренняя и внешняя тени */
+}
+
+/* Карточка вопроса */
+.question-card {
+    padding: 36px 32px 32px;
+}
+
+/* Блок с уравнением */
+.equation-box {
+    background: #ffffff;
+    border-radius: 40px;
+    padding: 32px 24px;
+    margin-bottom: 32px;
+    box-shadow: 0 12px 28px -8px rgba(0, 0, 0, 0.08);
+    /* Легкая тень */
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    /* Едва заметная рамка */
+    text-align: center;
+}
+
+/* Само уравнение */
+.equation {
+    font-size: 2.2rem;
+    font-weight: 600;
+    font-family: 'Courier New', 'SF Mono', monospace;
+    color: #0a2b42;
+    background: #f8fafd;
+    padding: 20px 12px;
+    border-radius: 36px;
+    display: inline-block;
+    width: 100%;
+    letter-spacing: 1px;
+    /* Межбуквенный интервал */
+    box-shadow: inset 0 1px 3px #0001, 0 2px 3px white;
+    /* Комбинация теней для объема */
+}
+
+/* Область ввода */
+.input-area {
+    margin-top: 20px;
+}
+
+/* Поле ввода ответа */
+.answer-field {
+    width: 100%;
+    padding: 18px 24px;
+    font-size: 1.3rem;
+    font-family: 'Segoe UI', monospace;
+    border: 2px solid #cfdfed;
+    border-radius: 60px;
+    outline: none;
+    /* Убираем стандартную обводку при фокусе */
+    transition: 0.2s;
+    text-align: center;
+    font-weight: 500;
+    background: #fefefe;
+}
+
+/* Стили поля ввода при фокусе (клике) */
+.answer-field:focus {
+    border-color: #1e6f9f;
+    box-shadow: 0 0 0 3px rgba(30, 111, 159, 0.2);
+    /* Внешнее свечение */
+}
+
+/* Кнопка "Продолжить" */
+.next-btn {
+    background: #2c7da0;
+    color: white;
+    border: none;
+    /* Убираем стандартную рамку */
+    padding: 16px 28px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    border-radius: 60px;
+    width: 100%;
+    cursor: pointer;
+    /* Курсор в виде руки при наведении */
+    transition: 0.2s;
+    margin-top: 28px;
+    letter-spacing: 0.5px;
+    /* Межбуквенный интервал */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Тень */
+}
+
+/* Эффект при наведении на кнопку */
+.next-btn:hover {
+    background: #1f5e7e;
+    transform: translateY(-2px);
+    /* Легкий подъем вверх */
+}
+
+/* Эффект при нажатии на кнопку */
+.next-btn:active {
+    transform: translateY(1px);
+    /* Опускание при клике */
+}
+
+/* Контейнер результатов */
+.results-container {
+    padding: 24px 32px 40px;
+}
+
+/* Заголовок результатов */
+.result-title {
+    font-size: 1.7rem;
+    font-weight: 700;
+    margin-bottom: 24px;
+    color: #1e3c72;
+    border-left: 5px solid #f4a261;
+    padding-left: 20px;
+}
+
+/* Отдельный элемент результата (один вопрос) */
+.result-item {
+    background: #ffffffdd;
+    border-radius: 28px;
+    margin-bottom: 20px;
+    padding: 18px 24px;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.03);
+    /* Легкая тень */
+    border: 1px solid #e2edf7;
+    /* Рамка */
+}
+
+/* Блок с уравнением в результатах */
+.result-equation {
+    font-weight: 700;
+    font-size: 1.2rem;
+    font-family: monospace;
+    background: #eef3fc;
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 40px;
+    margin-bottom: 12px;
+}
+
+/* Строка с ответами пользователя и правильным ответом */
+.answer-row {
+    display: flex;
+    flex-wrap: wrap;
+    /* Перенос на новую строку, если не помещаются */
+    gap: 20px;
+    /* Расстояние между элементами */
+    margin-top: 12px;
+    font-size: 1rem;
+}
+
+/* Стиль ответа пользователя */
+.user-answer {
+    background: #f1f5f9;
+    padding: 10px 18px;
+    border-radius: 40px;
+    font-weight: 500;
+}
+
+/* Стиль правильного ответа */
+.correct-answer {
+    background: #e6f4ea;
+    padding: 10px 18px;
+    border-radius: 40px;
+    color: #1f6e43;
+    font-weight: 500;
+}
+
+/* Зеленая подсветка для верного ответа пользователя */
+.highlight-green {
+    background: #c8e6d9;
+    color: #0a4b2f;
+    font-weight: bold;
+    border-left: 4px solid #2e7d32;
+}
+
+/* Красная подсветка для неверного ответа */
+.highlight-red {
+    background: #ffe6e5;
+    color: #b91c1c;
+    font-weight: bold;
+    border-left: 4px solid #d32f2f;
+}
+
+/* Кнопка перезапуска теста */
+.restart-btn {
+    background: #1e3c72;
+    margin-top: 32px;
+    width: auto;
+    display: inline-block;
+    padding: 12px 32px;
+    border-radius: 60px;
+    font-weight: bold;
+    border: none;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    /* Курсор-рука */
+    transition: 0.2s;
+}
+
+/* Эффект при наведении на кнопку рестарта */
+.restart-btn:hover {
+    background: #0f2b4d;
+    transform: scale(0.98);
+    /* Легкое уменьшение */
+}
+
+/* Подвал с информацией */
+.footer-info {
+    text-align: center;
+    padding: 16px 24px 24px;
+    font-size: 0.75rem;
+    color: #6f8faa;
+    border-top: 1px solid #dce5ef;
+}
+
+/* Скрытые элементы (используется для переключения между вопросом и результатами) */
+.hidden {
+    display: none;
+}
+
+/* Стили для предупреждений */
+.warning {
+    color: #c7362b;
+    font-size: 0.85rem;
+    margin-top: 8px;
+    text-align: center;
+}
+
+/* Адаптивность для мобильных устройств (максимальная ширина 550px) */
+@media (max-width: 550px) {
+    .equation {
+        font-size: 1.5rem;
+        word-break: break-word;
+    }
+    
+    .question-card {
+        padding: 24px 20px;
+    }
+    
+    .result-item {
+        padding: 16px;
+    }
+}
